@@ -1,0 +1,140 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Api - v1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/info": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Get build / version info",
+        "operationId": "GetInfo",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetInfoResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppErrorType": {
+        "enum": [
+          "InternalServerError",
+          "ValidationError",
+          "Message",
+          "NotFound",
+          "AccessDenied",
+          "DomainError",
+          "NotSupported",
+          "NotImplemented"
+        ],
+        "type": "string"
+      },
+      "AppProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "title": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "status": {
+            "type": [
+              "null",
+              "integer"
+            ],
+            "format": "int32"
+          },
+          "detail": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "instance": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "errors": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "errorType": {
+            "$ref": "#/components/schemas/AppErrorType"
+          }
+        },
+        "description": "Extends RFC 7807 ProblemDetails with an app-specific AppErrorType? AppProblemDetails.ErrorType\r\nenum and field-level Dictionary&lt;string, string[]&gt;? AppProblemDetails.Errors dictionary (matches\r\nIDictionary&lt;string, string[]&gt; ValidationProblemDetails.Errors shape so clients can use the same parser)."
+      },
+      "GetInfoResponse": {
+        "type": "object",
+        "properties": {
+          "buildDate": {
+            "description": "UTC timestamp when the assembly was built.",
+            "format": "date-time"
+          },
+          "version": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Informational assembly version."
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Info"
+    }
+  ]
+}

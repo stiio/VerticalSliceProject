@@ -26,9 +26,6 @@ appsettings.*.local.json
 *.pem
 secrets.json
 
-# OpenAPI specs are generated at build time
-specs/
-
 # Test results / coverage
 [Tt]est[Rr]esult*/
 *.coverage

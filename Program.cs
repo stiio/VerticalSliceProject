@@ -32,6 +32,7 @@ try
         ConfigureJson(minimalBuilder.Services);
         minimalBuilder.Services.AddAppOpenApi();
         minimalBuilder.Services.AddEndpointsApiExplorer();
+        minimalBuilder.Services.AddDocGenStubs();
         var minimalApp = minimalBuilder.Build();
         minimalApp.UseAppOpenApi();
         // Endpoints must still be in the route table so doc generation can describe them, but
