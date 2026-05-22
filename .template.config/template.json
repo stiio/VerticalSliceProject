@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Stio",
+  "classifications": [ "Web", "WebAPI" ],
+  "name": "Stio Vertical Slice API",
+  "shortName": "stio_vslice",
+  "defaultName": "Service.Web",
+  "sourceName": "VerticalSliceProject",
+  "identity": "Stio.VerticalSliceProject",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": false,
+  "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        { "choice": "net10.0", "description": "Target net10.0" }
+      ],
+      "replaces": "net10.0",
+      "defaultValue": "net10.0"
+    }
+  },
+  "primaryOutputs": [
+    { "path": "VerticalSliceProject.csproj" }
+  ],
+  "sources": [
+    {
+      "exclude": [
+        "**/**/**/[Bb]in/**",
+        "**/**/**/[Oo]bj/**",
+        "**/**/[Bb]in/**",
+        "**/**/[Oo]bj/**",
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        "[Bb]in/**",
+        "[Oo]bj/**",
+        ".template.config/**/*",
+        "**/*.filelist",
+        "**/*.user",
+        "**/*.lock.json",
+        ".vs/**/*",
+        "specs/**",
+        ".gitignore"
+      ]
+    }
+  ]
+}
