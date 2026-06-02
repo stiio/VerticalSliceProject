@@ -74,7 +74,7 @@ public static class ConfigureOpenApi
         };
 
         opts.AddDocumentTransformer<ErrorResultDocumentTransformer>();
-        opts.AddDocumentTransformer<PolymorphicDerivedRequiredTransformer>();
+        opts.AddDocumentTransformer<PolymorphismOneOfTransformer>();
 
         opts.AddOperationTransformer<DefaultApplicationResponsesTransformer>();
         opts.AddOperationTransformer<CamelCaseParametersTransformer>();
@@ -87,7 +87,6 @@ public static class ConfigureOpenApi
         opts.AddSchemaTransformer<FormFileSchemaTransformer>();
         opts.AddSchemaTransformer<StringEnumSchemaTransformer>();
         opts.AddSchemaTransformer<DateTimeSchemaTransformer>();
-        opts.AddSchemaTransformer<PolymorphismOneOfTransformer>();
         opts.AddSchemaTransformer<FileResultSchemaTransformer>();
     }
 }
