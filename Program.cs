@@ -121,6 +121,7 @@ void ConfigureMiddleware(WebApplication app, IWebHostEnvironment env)
 
 void ConfigureEndpoints(IEndpointRouteBuilder app)
 {
+    app.MapHealthChecks("/health");
     app.MapAllEndpoints();
 }
 
