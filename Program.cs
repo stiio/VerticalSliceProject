@@ -85,6 +85,7 @@ void ConfigureServices(IServiceCollection services, IConfiguration configuration
     services.AddEndpointsApiExplorer();
     services.AddAppOpenApi();
     services.AddAppProblemDetails();
+    services.AddHealthChecks();
 
     services.AddHttpContextAccessor();
 
